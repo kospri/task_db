@@ -1,0 +1,6 @@
+
+[connection]
+host: localhost
+username: postgres
+password: password
+dbname: db1

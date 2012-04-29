@@ -1,0 +1,41 @@
+
+DB with all tables should be created, all functions should be added.
+
+connection settings must be set in 'config' file and placed in the same directory as 'actions.py'
+
+Run: actions.py
+without any parameters - it will add to DB 10 customers with addresses and orders.
+
+
+1) Review db structure:
+- different sequences must be used for primary keys in each table:
+    customer =  pk_cust_seq
+    address  =  pk_addr_seq
+    orders   =  pk_ordr_seq
+
+2) New dictionary table must be added for Order's status:
+  orders.key_status - must be changed to foreign key.
+  
+  new table "order_status":
+    id_status - BIGINT, status code, primary key
+    status    - TEXT,   status description.
+    
+    sequence 'pk_stat_seq' should be used for id_status.
+ 
+3) New table must be added to represent relationships between Customer and Address.
+
+  new table "cust_addr_link":
+    id_link      - BIGINT, link code.
+    key_customer - BININT, foreign key (customer id).
+    key_address  - BIGINT, foreign key (address id).
+    
+    sequence 'pk_link_seq' should be used for id_link.    
+    the pair (key_customer, key_address) must be unique.
+    
+  so, "address" table must be changed:
+    - field "key_customer" must be removed.
+    - field "key_link" must be added as foreign key (linked to cust_addr_link.id_link).
+   
+  Table "orders" must be changed too:
+    - fields "key_customer" and "key_address" must be removed.
+    - field "key_link" must be added as foreign key (linked to cust_addr_link.id_link).
