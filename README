@@ -1,0 +1,10 @@
+This it task (functions.sql, structure.sql) file with results.
+
+see 'notes.txt' for details.
+see 'queries.sql' for example of queries.
+
+requirements:
+- python 2.6 
+- packages 'psycopg2' and 'sqlalchemy' must be installed.
+
+
